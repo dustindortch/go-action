@@ -1,7 +1,5 @@
 FROM golang:1.24 AS builder
 
-RUN apt-get update && apt-get -y install upx
-
 ENV GO111MODULE=on CGO_ENABLED=0
 
 WORKDIR /app
@@ -16,8 +14,6 @@ RUN go build \
   -ldflags "-s -w -extldflags '-static'" \
   -installsuffix cgo \
   -o build/action
-RUN strip build/action
-RUN upx -q -9 build/action
 
 FROM scratch
 
