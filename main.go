@@ -21,7 +21,7 @@ func output(k string, v string) string {
 }
 
 func Printenv(e string) {
-	fmt.Println(os.Getenv(e))
+	log.Println(os.Getenv(e))
 }
 
 func main() {
