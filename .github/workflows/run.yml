@@ -18,7 +18,7 @@ jobs:
         name: Run Go Action
         uses: dustindortch/go-action@main
         with:
-          name: 'World'
+          name: ${{ inputs.name }}
 
       - name: Print Greeting
         shell: bash
