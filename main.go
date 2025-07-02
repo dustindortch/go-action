@@ -9,8 +9,6 @@ import (
 
 var Name string
 
-var GH_OUTPUT string
-
 func init() {
 	Name = cmp.Or(
 		os.Getenv("INPUT_NAME"),
@@ -19,12 +17,11 @@ func init() {
 }
 
 func output(k string, v string) string {
-	return fmt.Sprintf(`%s=%s`, k, v)
+	return fmt.Sprintf(`::set-output name=%s::%s`, k, v)
 }
 
 func main() {
 	greeting := fmt.Sprintf("Hello, %v!", Name)
 	log.Println(greeting)
-	GH_OUTPUT = output("greeting", greeting)
-	os.Setenv("GITHUB_OUTPUT", GH_OUTPUT)
+	fmt.Println(output("greeting", greeting))
 }
