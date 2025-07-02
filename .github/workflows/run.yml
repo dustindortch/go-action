@@ -1,12 +1,3 @@
-# Go Action
-
-A GitHub Action written in Go.
-
-## Example
-
-Below is an example workflow that uses this action:
-
-```yaml
 ---
 name: Go Action Example
 
@@ -27,19 +18,9 @@ jobs:
         uses: dustindortch/go-action@main
         with:
           name: 'World'
+
       - name: Print Greeting
         shell: bash
         run: |
           echo "${{ steps.greet-me.outputs.greeting }}"
 ...
-```
-
-## Inputs
-
-### Required
-
-`name` - The name to greet.
-
-## Outputs
-
-`greeting` - The greeting message.
