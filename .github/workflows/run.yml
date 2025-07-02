@@ -14,7 +14,8 @@ jobs:
   greet-me:
     runs-on: ubuntu-latest
     steps:
-      - name: Run Go Action
+      - id: greeting
+        name: Run Go Action
         uses: dustindortch/go-action@main
         with:
           name: 'World'
@@ -22,5 +23,5 @@ jobs:
       - name: Print Greeting
         shell: bash
         run: |
-          echo "${{ steps.greet-me.outputs.greeting }}"
+          echo "${{ steps.greeting.outputs.greeting }}"
 ...
